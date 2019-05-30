@@ -1,0 +1,105 @@
+---
+output: html_document
+---
+
+```{r echo=FALSE, include=FALSE, message=FALSE, warning=FALSE}
+# DEFINE LIBRARIES ---
+library("RefManageR")
+
+# DEFINE BIB FILE ---
+file.bib <- file.path("publications.bib")
+
+# LOAD BIB FILE ---
+aut.bib <- suppressMessages(RefManageR::ReadBib(file.bib, .Encoding="UTF-8"))
+
+# DECLARE TO LIST ALL PAPERS ---
+NoCite(aut.bib)
+
+# ADD DOI ---
+aut.bib <- GetDOIs(aut.bib)
+
+# ADD PUBMED IDs ---
+#aut.bib <- LookupPubMedID(bib=aut.bib[[1:length(aut.bib)]])
+
+
+#for(i in 1:length(aut.bib)){
+#     val <- suppressMessages(LookupPubMedID(bib=aut.bib[[i]]))
+#     aut.bib[[i]] <- val
+#}
+
+
+# FUNCTION: subsetBIByear() ---
+subsetBIByear <- function(bib, year){
+     sbib <- subset(aut.bib, unlist(lapply(aut.bib, function(x) x$year == year)))
+     return(sbib)
+}     
+```
+
+
+### 2019
+```{r echo=FALSE, results="asis"}
+b <- subsetBIByear(bib=aut.bib, year=2019)
+PrintBibliography(b, .opts = list(style = "html", bib.style = "numeric", sorting = "ydnt", max.names = 40))
+```
+
+
+### 2018
+```{r echo=FALSE, results="asis"}
+b <- subsetBIByear(bib=aut.bib, year=2018)
+PrintBibliography(b, .opts = list(style = "html", bib.style = "numeric", sorting = "ydnt", max.names = 40))
+```
+
+
+### 2017
+```{r echo=FALSE, results="asis"}
+b <- subsetBIByear(bib=aut.bib, year=2017)
+PrintBibliography(b, .opts = list(style = "html", bib.style = "numeric", sorting = "ydnt", max.names = 40))
+```
+
+
+### 2016
+```{r echo=FALSE, results="asis"}
+b <- subsetBIByear(bib=aut.bib, year=2016)
+PrintBibliography(b, .opts = list(style = "html", bib.style = "numeric", sorting = "ydnt", max.names = 40))
+```
+
+
+
+### 2015
+```{r echo=FALSE, results="asis"}
+b <- subsetBIByear(bib=aut.bib, year=2015)
+PrintBibliography(b, .opts = list(style = "html", bib.style = "numeric", sorting = "ydnt", max.names = 40))
+```
+
+
+### 2014
+```{r echo=FALSE, results="asis"}
+b <- subsetBIByear(bib=aut.bib, year=2014)
+PrintBibliography(b, .opts = list(style = "html", bib.style = "numeric", sorting = "ydnt", max.names = 40))
+```
+
+### 2013
+```{r echo=FALSE, results="asis"}
+b <- subsetBIByear(bib=aut.bib, year=2013)
+PrintBibliography(b, .opts = list(style = "html", bib.style = "numeric", sorting = "ydnt", max.names = 40))
+```
+
+### 2012
+```{r echo=FALSE, results="asis"}
+b <- subsetBIByear(bib=aut.bib, year=2012)
+PrintBibliography(b, .opts = list(style = "html", bib.style = "numeric", sorting = "ydnt", max.names = 40))
+```
+
+
+### 2011
+```{r echo=FALSE, results="asis"}
+b <- subsetBIByear(bib=aut.bib, year=2011)
+PrintBibliography(b, .opts = list(style = "html", bib.style = "numeric", sorting = "ydnt", max.names = 40))
+```
+
+### 1997
+```{r echo=FALSE, results="asis"}
+b <- subsetBIByear(bib=aut.bib, year=1997)
+PrintBibliography(b, .opts = list(style = "html", bib.style = "numeric", sorting = "ydnt", max.names = 40))
+```
+
